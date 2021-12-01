@@ -19,7 +19,8 @@ with open('input', 'r') as f:
     lines = f.read().splitlines()
     deepReadings = []    
     max = ''
-    print(lines)
+#    print(lines)
+
     for el in lines:
         if el >= max:
             max = el
@@ -34,6 +35,19 @@ print(len(deepReadings))
 print('The total number of measurements larger than the previous is ') 
 print(len(lines)-len(deepReadings))
 
-
 # Second Part of Day 1
+# Sum window of 3 elements.
+# List of 2000 elements-
 
+intervalReadings = []
+
+0:2
+1:3
+2:4
+3:5    
+i,j = 0
+
+for index in (range(lines)):
+    intervalReadings.append(lines[i:j])
+
+print(intervalReadings)
