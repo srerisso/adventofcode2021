@@ -19,7 +19,7 @@ with open('input', 'r') as f:
     lines = f.read().splitlines()
     deepReadings = []    
     max = ''
-#    print(lines)
+    print(lines)
     for el in lines:
         if el >= max:
             max = el
@@ -27,9 +27,13 @@ with open('input', 'r') as f:
             deepReadings.append(max)
             max = el
 
-print(len(deepReadings))
+print('The total number of measurements is ') 
 print(len(lines))
-print(len(deepReadings)-len(lines))
+print('The total number of MAX measurements is ') 
+print(len(deepReadings))
+print('The total number of measurements larger than the previous is ') 
+print(len(lines)-len(deepReadings))
 
 
 # Second Part of Day 1
+
