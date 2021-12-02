@@ -56,4 +56,16 @@ for elem in range(0,newlen):
 
 # We have created intervalReadings, a list of sublists of lines. Each sublist has 3 (window) elements
 # Now, we need the sum of each 3 elements.
-print(intervalReadings)
+
+intervalSumReadings = []
+
+# suml is a function that sums all the elements in a list
+def suml(list):
+    sum = 0
+    for el in list:
+        sum = sum + int(el)
+    return sum
+
+intervalSumReadings = map(suml, intervalReadings)
+
+print(list(intervalSumReadings))
