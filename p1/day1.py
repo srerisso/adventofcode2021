@@ -1,43 +1,55 @@
 ### ADVENT OF CODE 2021. DAY 1 ### 
 
-# Load and Analyze input finding increased measurements
-# 1. load ipnut file in a data structure
+## Functions created for these DAY 1.
 
-# 2. analyze input values. Find MAX
-# 
-# readv = file.read
-# if readv > lastv
-#    lastv = readv
-#    readv = file.read
-# else 
-#   max = lastv
-#import numpy as np
+# find_increases
+# Given a list of unordered readings from a sonar, find how many times 
+# there's a max depth reading.
+def find_increases(list):
+    deepReadings = []
+    max = 0
 
-
-with open('input', 'r') as f:
-    # File processing goes here
-    lines = f.read().splitlines()
-    deepReadings = []    
-    max = ''
-#    print(lines)
-
-    for el in lines:
+    for el in list:
         if el >= max:
             max = el
         else:
             deepReadings.append(max)
             max = el
 
-print("The total number of measurements is ") 
-print(len(lines))
-print('The total number of MAX measurements is ') 
-print(len(deepReadings))
-print('The total number of measurements larger than the previous is ') 
-print(len(lines)-len(deepReadings))
+    print("The total number measurements is ", len(intlines_list)) 
+    print('There are deep measurements measurements ', len(deepReadings)) 
+    print('The total number of measurements larger than the previous is ') 
+    print(len(lines)-len(deepReadings))
 
-### DAY 1. Second Part. ###
-# Sum window of 3 elements.
-# List of 2000 elements
+#    return(len(lines)-len(deepReadings))
+    return(deepReadings)
+
+# suml 
+# Return the sum of all the elements in a list
+def suml(list):
+    sum = 0
+    for el in list:
+        sum = sum + int(el)
+    return sum
+
+## PART 1 ##
+# Load and Analyze input finding increased measurements
+# 1. load input file in a data structure (a list).
+
+# 2. analyze input values. Find MAX depth values.
+
+with open('input', 'r') as f:
+    # File processing
+    lines = f.read().splitlines()
+
+integer_lines = map(int, lines)
+intlines_list = list(integer_lines)
+#print("Total number of MAX depth readings: ", len(lines)-len(find_increases(intlines_list)))
+find_increases(intlines_list)
+
+## PART 2 ##
+# Sum window of n elements (window)
+# List of n elements (lines)
 
 intervalReadings = []
 i = 0
@@ -45,9 +57,9 @@ j = 3
 window = 3
 
 newlen = len(lines)
-print(newlen)
+#print("New length: ", newlen)
 newlen = newlen - (len(lines) % window)
-print(newlen)
+#print("New Length updated: ", newlen)
 
 for elem in range(0,newlen):
     intervalReadings.append(lines[i:j])
@@ -59,13 +71,10 @@ for elem in range(0,newlen):
 
 intervalSumReadings = []
 
-# suml is a function that sums all the elements in a list
-def suml(list):
-    sum = 0
-    for el in list:
-        sum = sum + int(el)
-    return sum
-
 intervalSumReadings = map(suml, intervalReadings)
 
-print(list(intervalSumReadings))
+#print(list(intervalSumReadings))
+print('*** ******************************** ***')
+#print(len(intlines_list)-len(find_increases(list(intervalSumReadings))))
+#print("Total number of MAX depth readings (Window system): ", find_increases(list(intervalSumReadings)))
+find_increases(list(intervalSumReadings))
