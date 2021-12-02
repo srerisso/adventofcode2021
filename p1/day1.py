@@ -28,26 +28,32 @@ with open('input', 'r') as f:
             deepReadings.append(max)
             max = el
 
-print('The total number of measurements is ') 
+print("The total number of measurements is ") 
 print(len(lines))
 print('The total number of MAX measurements is ') 
 print(len(deepReadings))
 print('The total number of measurements larger than the previous is ') 
 print(len(lines)-len(deepReadings))
 
-# Second Part of Day 1
+### DAY 1. Second Part. ###
 # Sum window of 3 elements.
-# List of 2000 elements-
+# List of 2000 elements
 
 intervalReadings = []
+i = 0
+j = 3
+window = 3
 
-0:2
-1:3
-2:4
-3:5    
-i,j = 0
+newlen = len(lines)
+print(newlen)
+newlen = newlen - (len(lines) % window)
+print(newlen)
 
-for index in (range(lines)):
+for elem in range(0,newlen):
     intervalReadings.append(lines[i:j])
+    i = i+1
+    j = j+1
 
+# We have created intervalReadings, a list of sublists of lines. Each sublist has 3 (window) elements
+# Now, we need the sum of each 3 elements.
 print(intervalReadings)
