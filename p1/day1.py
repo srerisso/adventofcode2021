@@ -12,7 +12,7 @@ def find_increases(list):
     counter = 0
 
     for el in list:
-        if el >= max:
+        if (el > max) and (max != 0):
             incDeeps.append(el)
             max = el
         else:
@@ -21,14 +21,14 @@ def find_increases(list):
             max = el
 
     print("The total number measurements is ", len(list)) 
-    print('Total decreasing measurements ', len(deepReadings)) 
-    print('Total incresing measurements ', len(incDeeps)) 
+    print('Total deep Readings ', len(deepReadings)) 
+    print('Total inc Deeps ', len(incDeeps)) 
     print('The total number of measurements larger than the previous is ') 
     print(len(list)-len(deepReadings))
-    print('Counter: ', counter)
+#    print('Counter: ', counter)
 
 #    return(len(lines)-len(deepReadings))
-    return(deepReadings)
+    return(incDeeps)
 
 # suml 
 # Return the sum of all the elements in a list
@@ -44,6 +44,7 @@ def suml(list):
 
 # 2. analyze input values. Find MAX depth values.
 
+## Open file with input values
 with open('input', 'r') as f:
     # File processing
     lines = f.read().splitlines()
