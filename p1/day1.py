@@ -12,7 +12,7 @@ def find_increases(list):
     counter = 0
 
     for el in list:
-        if (el > max) and (max != 0):
+        if (el > max):
             incDeeps.append(el)
             max = el
         else:
@@ -21,18 +21,11 @@ def find_increases(list):
             max = el
 
     print("The total number measurements is ", len(list)) 
-<<<<<<< HEAD
     print('Total deep Readings ', len(deepReadings)) 
     print('Total inc Deeps ', len(incDeeps)) 
-=======
-    print('Total decreasing measurements ', len(deepReadings)) 
-    print('Total increasing measurements ', len(incDeeps)) 
->>>>>>> 3eb5fd38b1d1de887de4cdedc0530f8b5c755c17
     print('The total number of measurements larger than the previous is ') 
     print(len(list)-len(deepReadings))
-#    print('Counter: ', counter)
 
-#    return(len(lines)-len(deepReadings))
     return(incDeeps)
 
 # suml 
@@ -56,7 +49,7 @@ with open('input', 'r') as f:
 
 integer_lines = map(int, lines)
 intlines_list = list(integer_lines)
-intlines_list.pop(0) # Eliminate the first element for this case.
+intlines_list.pop(0) # Eliminate the first element.
 #print("Total number of MAX depth readings: ", len(lines)-len(find_increases(intlines_list)))
 print(find_increases(intlines_list))
 
@@ -70,9 +63,6 @@ j = 3
 window = 3
 
 newlen = len(lines)
-#print("New length: ", newlen)
-#newlen = newlen - (len(lines) % window)
-#print("New Length updated: ", newlen)
 
 for elem in range(0,newlen):
     if j == (newlen+1):
@@ -90,10 +80,7 @@ intervalSumReadings = []
 intervalSumReadings = map(suml, intervalReadings)
 listSumReadings = list(intervalSumReadings)
 listSumReadings.pop(0)
-#print('ListSumReadings', listSumReadings)
 print('*** ******************************** ***')
-#print(len(intlines_list)-len(find_increases(list(intervalSumReadings))))
-#print("Total number of MAX depth readings (Window system): ", find_increases(list(intervalSumReadings)))
 print(find_increases(listSumReadings))
 
-# Answer is NOT: 1732
+# Answer is : 1704
