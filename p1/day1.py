@@ -5,6 +5,9 @@
 # find_increases
 # Given a list of unordered readings from a sonar, find how many times 
 # there's a max depth reading.
+#
+# incDeeps: array that saves readings that keep increasing.
+# deepReadings: array that saves deeps smaller than previous reading.
 def find_increases(list):
     deepReadings = []
     incDeeps = []
