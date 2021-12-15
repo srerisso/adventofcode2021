@@ -1,11 +1,13 @@
+## #################################
 ## AOC. DAY 3.
 # Binary Diagnostic
-
+#
 # power_consumption = gamma_rate * epsilon_rate
-
+#
 # diagnostic_report (input)
-
+#
 # Open file with diagnostic report values
+
 from typing import Counter
 
 
@@ -15,12 +17,23 @@ with open('diagnostic_input', 'r') as f:
 
 # print('Diagnostic values: {}'.format(diagnostic_lines))
 
-# checkListValues : given a list of binary values, find the most common value for every bit position.
+## Function findGamma
+def findGamma(dict):
+    for el in dict:
+        Counter(el)
+    
+    print('Find Gamma rate')
 
-# def findMax(list):
-    # loop through list
+## Function findEpsilon
+def findEpsilon(dict):
+    for el in dict:
+        Counter(el)
+        
+    print('Find Epsilon rate')
 
 
+
+## #################################
 # Here is the main process.
 # for element in diagnostic_lines: # Loop through all elements of diagnostic_lines
 
@@ -42,4 +55,4 @@ for el in diagnostic_lines:
         else:
             dictBits[bit] = dictBits[bit] + el[bit]
 
-print(Counter(dictBits[0]))
+# print(Counter(dictBits[0]))
