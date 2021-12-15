@@ -10,19 +10,33 @@ with open('diagnostic_input', 'r') as f:
     # File processing
     diagnostic_lines = f.read().splitlines()
 
-print('Diagnostic values: {}'.format(diagnostic_lines))
+# print('Diagnostic values: {}'.format(diagnostic_lines))
 
-bitlist = []
-strofbits = ''
-count = 0
+# checkListValues : given a list of binary values, find the most common value for every bit position.
 
-# Here is the chicha
-for element in diagnostic_lines: # Loop through all elements of diagnostic_lines
-    for bit in range(0,len(element)-1):  # Loop through all 12 bitlists of every element
-        element[bit]
-    strofbits = strofbits + element[bit]
-    bitlist[count] = strofbits
-    count += 1
+# def findMax(list):
+    # loop through list
 
 
-print(bitlist)
+# Here is the main process.
+# for element in diagnostic_lines: # Loop through all elements of diagnostic_lines
+
+# Define a Dictionary to hold all values of every bit position
+#
+# dictBits = [(0:'110001100 ... 0011'), (1:'010101100 ... 0101'), ... , (11:'000001100 ... 0111')
+
+dictBits = {}
+count = -1
+
+for el in diagnostic_lines:
+    # bitlist=[]
+    count = count+1
+    for bit in range(0,12):
+        # dictBits[bit] = el[bit]
+        # update dict value with previous value
+        if count == 0: # first iteration, there's nothing in the dictionary
+            dictBits[bit] = el[bit]
+        else:
+            dictBits[bit] = dictBits[bit] + el[bit]
+
+print(dictBits[0])
