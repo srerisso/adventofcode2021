@@ -6,6 +6,9 @@
 # diagnostic_report (input)
 
 # Open file with diagnostic report values
+from typing import Counter
+
+
 with open('diagnostic_input', 'r') as f:
     # File processing
     diagnostic_lines = f.read().splitlines()
@@ -39,4 +42,4 @@ for el in diagnostic_lines:
         else:
             dictBits[bit] = dictBits[bit] + el[bit]
 
-print(dictBits[0])
+print(Counter(dictBits[0]))
