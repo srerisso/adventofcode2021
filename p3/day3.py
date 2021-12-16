@@ -10,13 +10,6 @@
 
 from typing import Counter
 
-
-with open('diagnostic_input', 'r') as f:
-    # File processing
-    diagnostic_lines = f.read().splitlines()
-
-# print('Diagnostic values: {}'.format(diagnostic_lines))
-
 ## Function findGamma
 # Find the most common bit
 def findGamma(str1):
@@ -52,6 +45,13 @@ def findEpsilon(str1):
 #
 # dictBits = [(0:'110001100 ... 0011'), (1:'010101100 ... 0101'), ... , (11:'000001100 ... 0111')
 
+# Open file and read input values.
+with open('diagnostic_input', 'r') as f:
+    # File processing
+    diagnostic_lines = f.read().splitlines()
+
+# print('Diagnostic values: {}'.format(diagnostic_lines))
+
 dictBits = {}
 count = -1
 
@@ -62,18 +62,19 @@ for el in diagnostic_lines:
         # dictBits[bit] = el[bit]
         # update dict value with previous value
         if count == 0: # first iteration, there's nothing in the dictionary
-            dictBits[bit] = el[bit]
+            dictBits[bit] = el[11-bit]
         else:
-            dictBits[bit] = dictBits[bit] + el[bit]
+            dictBits[bit] = dictBits[bit] + el[11-bit]
 
-# print(dictBits.values())
+# print(dictBits)
+print(dictBits.values())
 #
 # dictBits.values = ()
 
 epsilonR = ''
 gammaR = ''
 
-for element in dictBits.values():
+for element in reversed(dictBits.values()):
     c=findGamma(str(element))
     gammaR = gammaR + c
     d=findEpsilon(str(element))
