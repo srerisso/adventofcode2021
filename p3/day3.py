@@ -18,19 +18,30 @@ with open('diagnostic_input', 'r') as f:
 # print('Diagnostic values: {}'.format(diagnostic_lines))
 
 ## Function findGamma
-def findGamma(dict):
-    for el in dict:
-        Counter(el)
-    
-    print('Find Gamma rate')
+# Find the most common bit
+def findGamma(str1):
+    gammaRate = ''
+    c=Counter(str1)
+    if c['0'] > c['1']:
+        gammaRate = '0'
+    else:
+        gammaRate = '1'
+
+    # print('Gamma rate: {}'.format(gammaRate))
+    return gammaRate    
 
 ## Function findEpsilon
-def findEpsilon(dict):
-    for el in dict:
-        Counter(el)
+# Find the least common bit
+def findEpsilon(str1):
+    epsilonRate = ''
+    c=Counter(str1)
+    if c['0'] > c['1']:
+        epsilonRate = '1'
+    else:
+        epsilonRate = '0'
         
-    print('Find Epsilon rate')
-
+    # print('Epsilon rate: {}'.format(epsilonRate))
+    return epsilonRate 
 
 
 ## #################################
@@ -55,4 +66,19 @@ for el in diagnostic_lines:
         else:
             dictBits[bit] = dictBits[bit] + el[bit]
 
-# print(Counter(dictBits[0]))
+# print(dictBits.values())
+#
+# dictBits.values = ()
+
+epsilonR = ''
+gammaR = ''
+
+for element in dictBits.values():
+    c=findGamma(str(element))
+    gammaR = gammaR + c
+    d=findEpsilon(str(element))
+    epsilonR = epsilonR + d
+
+print('Gamma Rate is: {}'.format(gammaR))
+print('Epsilon Rate is: ', epsilonR)
+print('Power Consumption is: ', gammaR * epsilonR)
